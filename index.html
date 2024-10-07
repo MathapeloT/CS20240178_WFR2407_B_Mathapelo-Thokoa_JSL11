@@ -3,14 +3,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Page Styling: Links to external CSS for page styling and fonts. -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
     </style>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.svg">
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.svg" />
     <title>Agile Board Task Management</title>
 </head>
 
@@ -18,7 +18,7 @@
     <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
     <nav class="side-bar" id="side-bar-div">
         <div id="side-logo-div">
-            <img id="logo" src="./assets/logo-dark.svg" alt="logo-dark">
+            <img id="logo" src="./assets/logo-dark.svg" alt="logo-dark" />
         </div>
 
         <div class="boards-nav-links-div" id="boards-nav-links-div">
@@ -26,10 +26,16 @@
         </div>
         <div class="side-bar-bottom">
             <div class="toggle-div">
-                <img src="./assets/icon-dark-theme.svg" id="icon-dark" alt="icon-dark-theme">
+                <img 
+                    src="./assets/icon-dark-theme.svg" 
+                    id="icon-dark" 
+                    alt="icon-dark-theme" />
                 <input type="checkbox" id="switch" />
                 <label for="switch" id="label-checkbox-theme"></label>
-                <img src="./assets/icon-light-theme.svg" id="icon-light" alt="icon-light-theme">
+                <img 
+                    src="./assets/icon-light-theme.svg" 
+                    id="icon-light" 
+                    alt="icon-light-theme" />
             </div>
             <div class="hide-side-bar-div">
                 <img src="./assets/icon-hide-sidebar.svg" alt="icon-hide-sidebar">
@@ -45,10 +51,17 @@
     <div id="layout">
         <header id="header" class="sticky-header">
             <div class="header-name-div">
-                <img src="./assets/logo-mobile.svg" alt="logo-mobile" class="logo-mobile">
+                <img 
+                    src="./assets/logo-mobile.svg" 
+                    alt="logo-mobile" 
+                    class="logo-mobile" />
                 <h2 class="header-board-name" id="header-board-name"></h2>
                 <button class="dropdownBtn" id="dropdownBtn">
-                    <img src="./assets/icon-chevron-down.svg" alt="icon-chevron-down" class="icon-chevron-down" id="dropDownIcon">
+                <img 
+                    src="./assets/icon-chevron-down.svg" 
+                    alt="icon-chevron-down" 
+                    class="icon-chevron-down" 
+                    id="dropDownIcon" />
                 </button>
             </div>
             <button id="add-new-task-btn" class="primary-btn">+ Add New Task</button>
@@ -97,12 +110,22 @@
     <form class="modal-window" id="new-task-modal-window">
         <h4 class="modal-title">Add New Task</h4>
         <div class="input-div">
-            <label class="label-modal-window" id="modal-title-input" for="title-input">Title</label>
-            <input type="text" class="modal-input" id="title-input" placeholder="e.g. Take a little break">
+            <label 
+                class="label-modal-window" 
+                id="modal-title-input" 
+                for="title-input">Title</label>
+            <input 
+                type="text" 
+                class="modal-input" 
+                id="title-input" 
+                placeholder="e.g. Take a little break" />
         </div>
         <div class="input-div">
             <label class="label-modal-window" id="modal-desc-input" for="desc-input">Description</label>
-            <textarea name="description" id="desc-input" placeholder="e.g. Pet your dog, have a cup of coffee, dance to your favourite song and come back to conquer this challenge. 💪🏾"></textarea>
+            <textarea 
+                name="description" 
+                id="desc-input" 
+                placeholder="e.g. Pet your dog, have a cup of coffee, dance to your favourite song and come back to conquer this challenge. 💪🏾"></textarea>
         </div>
         <div class="input-div">
             <label class="label-modal-window" id="modal-select-status" for="select-status">Status</label>
@@ -122,11 +145,18 @@
     <div class="edit-task-modal-window">
         <form id="edit-task-form">
             <div class="edit-task-div" id="edit-task-header">
-                <input type="text" id="edit-task-title-input" class="task-title-input" placeholder="Task Title">
-                <button id="edit-btn" class="edit-btn"></button>
+                <input 
+                    type="text" 
+                    id="edit-task-title-input" 
+                    class="task-title-input" 
+                    placeholder="Task Title" />
+                <button id="edit-btn" class="edit-btn">Edit</button>
             </div>
             <div class="edit-task-div">
-                <textarea id="edit-task-desc-input" class="edit-task-description-input" placeholder="Task Description"></textarea>
+                <textarea 
+                    id="edit-task-desc-input" 
+                    class="edit-task-description-input" 
+                    placeholder="Task Description"></textarea>
             </div>
             <div class="edit-task-div">
                 <label class="label-modal-window" for="edit-select-status">Current Status</label>
@@ -149,6 +179,5 @@
 
     <!-- JavaScript Import -->
     <script type="module" src="./index.js"></script>
-</body>
-
+ </body>
 </html>
