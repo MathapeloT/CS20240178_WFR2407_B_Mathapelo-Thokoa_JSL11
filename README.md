@@ -12,7 +12,8 @@ We're providing you with a head start:
 
 - **🪲Important Note on Debugging🚨:** In the sections of the project where you are tasked with debugging the code, *it's crucial to focus on identifying and correcting errors within the existing functions rather than undertaking a complete refactoring of the code.* This means you will need to carefully analyze the provided starter code to pinpoint syntax errors, logical mistakes, or any bugs that prevent the application from functioning as intended. **The goal is to improve and repair the codebase by making precise adjustments, ensuring that the original structure, function logic and intended functionality are preserved.** This approach not only aligns with the project's requirements but also hones the essential skill of debugging— a critical competency for any developer.
 
-Loom video Link: https://www.loom.com/share/0646275dac16493489b5d8ed220419c1?sid=56aa3de8-da6b-49b1-a581-a4683be12e96
+Loom video Link: https:https://www.loom.com/share/2317e8e260234985937cb0a6d3dc8a6f?sid=1b306665-4689-4c2c-9a82-2b593d1d1328
+Presentation Link: https://docs.google.com/presentation/d/1XnNB4DQWY-sVGz54MtQ7FBPONCG-ppUT2lLEQKZwYko/edit?usp=sharing
 ### Walkthrough by Coach Kenneth
 
 Jump into the walkthrough of the project and starter code here: https://www.youtube.com/watch?v=aD8Wx9PGYSc
