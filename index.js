@@ -259,11 +259,12 @@ function addTask(event) {
 
   //Assign user input to the task object
     const task = {
-      status: document.getElementById("select-status").value,
-      title: document.getElementById("title-input").value,
-      description: document.getElementById("desc-input").value,
+      status: elements.statusSelect.value,
+      title: elements.titleText.value,
+      description: elements.descriptionText.value,
       board: activeBoard,
     };
+
     const newTask = createNewTask(task);
     if (newTask) {
       addTaskToUI(newTask);
@@ -276,29 +277,46 @@ function addTask(event) {
 
 
 function toggleSidebar(show) {
- const sideBar = document.getElementById("side-bar-div");
- sideBar.style.display = show ? "block" : "none";
+ elements.navSideBar.style.display = show ? "block" : "none";
  elements.showSideBarBtn.style.display = show ? "none" : "block";
-}
+ localStorage.setItem("showSideBar", show);
+};
 
 function toggleTheme() {
+  const body = document.body;
  const logo = document.getElementById("logo");
- const isLightTheme = document.body.classList.toggle("light-theme");
- logo.setAttribute("src", isLightTheme? "./assets/logo-light.svg" : "./assets/logo-dark.svg");
+
+  body.classList.toggle("light-theme");
+
+ if (body.classList.contains("light-theme")) {
+  logo.src = "./assets/logo-light.svg";
+ } else {
+  logo.src = "./assets/logo-dark.svg";
+ }
+
+localStorage.setItem("light-theme", body.classList.contains("light-theme") ? "enabled" : "disabled");
 }
 
 
+function setInitialTheme() {
+  const logo = document.getElementById("logo");
+  if (localStorage.getItem("light-theme") === "enabled") {
+    document.body.classList.add("light-theme");
+    logo.src = "./assets/logo-light.svg";
+    document.getElementById("switch").checked = true;
+  } else {
+    logo.src = "./assets/logo-light.svg";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", setInitialTheme);
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
 
-  const title = document.getElementById("edit-task-title-input");
-  const desc = document.getElementById("edit-task-desc-input");
-  const status = document.getElementById("edit-select-status");
-
-  title.value = task.title;
-  desc.value = task.description;
-  status.value = task.status;
+  elements.editTaskInput.value = task.title;
+  elements.editInputArea.value = task.description;
+  elements.editSelectStatus.value = task.status;
 
   // Get button elements from the task modal
 
@@ -306,8 +324,11 @@ function openEditTaskModal(task) {
   const deleteTaskBtn = document.getElementById("delete-task-btn");
   const cancelEditBtn = document.getElementById("cancel-edit-btn");
 
-  cancelEditBtn.addEventListener("click", () => (elements.editTaskModalWindow.style.display = "none")
-);
+  saveChangesBtn.onclick = null;
+  deleteTaskBtn.onclick = null;
+  cancelEditBtn.onclick = null;
+
+
   // Call saveTaskChanges upon click of Save Changes button
  
   saveChangesBtn.onclick = () => saveTaskChanges(task.id);
@@ -321,6 +342,12 @@ function openEditTaskModal(task) {
     refreshTasksUI();
 };
 
+cancelEditBtn.onclick = () => {
+  toggleModal(false, elements.editTaskWindows);
+  refreshTasksUI();
+};
+toggleModal(true, elements.editTaskWindow);
+};
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
@@ -328,27 +355,25 @@ function saveTaskChanges(taskId) {
 
   // Create an object with the updated task details
   const updatedTask = {
-    title: elements.editTaskTitleInput,value,
-    description: elements.editTaskDescInput.value,
+    title: elements.editTaskInput,value,
+    description: elements.editInputArea.value,
     status: elements.editSelectStatus.value,
     board: activeBoard,
-  } 
+  }; 
 
   // Update task using a helper function
   putTask(taskId, updatedTask);
 
   // Close the modal and refresh the UI to reflect the changes
-  elements.editTaskModalWindow.style.display = "none";
+  toggleModal(false, elements.editWindow);
   refreshTasksUI();
 };
-}
+
 
 /*************************************************************************************************************************************************/
 
 document.addEventListener("DOMContentLoaded", function() {
-  initializeData();
   init(); // init is called after the DOM is fully loaded
-  refreshTasksUI();
 });
 
 function init() {
